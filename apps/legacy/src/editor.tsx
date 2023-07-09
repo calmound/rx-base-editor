@@ -9,6 +9,8 @@ import {
 import { StarterKit } from '@gitee/tide-starter-kit';
 import { LegacyExtOpts } from './type';
 
+import html2canvas from 'html2canvas';
+
 import {
   EditorRemoteDataProvider,
   MentionMember,
@@ -66,9 +68,40 @@ const LegacyTideEditor = forwardRef<TideEditor, LegacyTideEditorProps>(
     });
 
     useImperativeHandle(ref, () => editor as TideEditor, [editor]);
-
     return (
       <EditorRemoteDataProvider fetchResources={fetchResources}>
+        <span
+          onClick={() => {
+            editor.setEditable(false);
+          }}
+        >
+          只读
+        </span>
+        <span
+          onClick={() => {
+            const width = 341;
+            const height = 534;
+            let scrollTop = 0;
+            const offsetHeight =
+              document.querySelector('.tide-content')?.offsetHeight;
+            for (; scrollTop < offsetHeight; scrollTop += height) {
+              html2canvas(document.querySelector('.tide-content'), {
+                height: height,
+                width: width,
+                y: scrollTop,
+                scale: 2,
+              }).then((canvas) => {
+                document.body.appendChild(canvas);
+                const link = document.createElement('a');
+                link.download = 'filename.png';
+                link.href = canvas.toDataURL();
+                link.click();
+              });
+            }
+          }}
+        >
+          download image
+        </span>
         <EditorRender editor={editor} />
       </EditorRemoteDataProvider>
     );

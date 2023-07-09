@@ -1,6 +1,7 @@
 import issues from './mock_issues.json';
 import members from './mock_members.json';
 import pullRequests from './mock_pull_requests.json';
+import self from './mock_self.json';
 import {
   MentionPullRequestAttributes,
   MentionMemberAttributes,
@@ -21,15 +22,18 @@ export async function fetchMention<
   await sleep(500);
 
   if (type === 'issues') {
-    return issues as unknown as MentionIssueAttributes[];
+    // return issues as unknown as MentionIssueAttributes[];
+    return self as unknown as MentionIssueAttributes[];
   }
 
   if (type === 'members') {
-    return members as unknown as MentionMemberAttributes[];
+    // return members as unknown as MentionMemberAttributes[];
+    return self as unknown as MentionIssueAttributes[];
   }
 
   if (type === 'pullRequests') {
-    return pullRequests as unknown as MentionPullRequestAttributes[];
+    // return pullRequests as unknown as MentionPullRequestAttributes[];
+    return self as unknown as MentionIssueAttributes[];
   }
 
   return [];

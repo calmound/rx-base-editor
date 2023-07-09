@@ -1,0 +1,69 @@
+@import (reference) '@gitee/tide-theme/dist/variable.less';
+
+.demo-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.demo-header-bar-left {
+  display: flex;
+  align-items: center;
+
+  .link-repository {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: black;
+
+    img {
+      margin-right: 8px;
+    }
+  }
+}
+
+body.theme-dark {
+  .demo-header-bar-left {
+    .link-repository {
+      color: white;
+    }
+  }
+}
+
+.demo-header-bar-right {
+  display: flex;
+  align-items: center;
+
+  .select-theme, .btn-dev-tool, .btn-clear, .btn-share, .env-tag {
+    margin-left: 8px;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  .env-tag {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 26px;
+    border-radius: 4px;
+    padding: 0 8px;
+    background-color: @border-color;
+  }
+
+  select, button {
+    height: 26px;
+    padding: 0 8px;
+    border-radius: 4px;
+    border: 1px solid @border-color;
+    background-color: @background-color;
+    cursor: pointer;
+
+    &:hover {
+      background-color: @background-hover-color;
+    }
+  }
+}

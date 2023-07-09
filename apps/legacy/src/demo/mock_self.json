@@ -1,0 +1,374 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "heading",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left",
+        "level": 1
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "前端遇到bug该怎么办"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "很多同学遇到问题时就会不知所措，不知道怎么解决。如果不知道答案，就算了；但更有一些同学甚至不知道如何去找解决方案。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "我经常收到一些同学的问题，他们说我的页面没有显示数据，我怀疑这个按钮没有接下来的交互操作，我在这里展示的与学习视频里面的不一样。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "对于不同的问题，实际上都有一定的检查模式可以遵循。"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left",
+        "level": 1
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "1、检查是否有错误"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "在这里，检查错误包括命令终端和浏览器控制台。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "如果有错误，请查找几个关键词。有时错误文本非常长，需要仔细查找附近是否有单词“error”，这将是实际的错误原因。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "有时，根本没有重新编译成功是因为代码中直接存在语法错误，这时在终端中可以查看错误文件的位置。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "其次，对于错误，我们在浏览器终端中看到的时候，点击文件进去发现是压缩后的代码，这种情况很可能是webpack的sourceMap没有开启。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "如果不知道错误的答案，请将错误信息复制下来，去网上搜索。你要相信你遇到的问题，肯定有其他人也遇到过。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "如果没有任何错误信息，数据或效果就是不对，继续往下看。"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left",
+        "level": 1
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "2、数据未显示，如何排除"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "对于这类与后端有交互的问题，有一个调查路径。记住三个关键字：取、存、显。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "取：确认接口数据是否正常返回。在控制台中查看 Network，找到这个接口。这里不仅包括后端返回的数据结构，还有你的请求信息是否正确。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "存：如果接口正常返回数据，那么就确认问题出现在前端，查看数据是否正常存储到变量中。这个时候要多用console打印出来查看值是否正确。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "显：如果变量值正确，但页面仍未显示，则问题很可能出现在变量将值显示上。这时需要排查你的template/jsx的内容。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "对于这类问题，有一个排查的路径，不要盲目查找，也不要猜测，应该通过一步步排除来解决。"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left",
+        "level": 1
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "3、样式有问题，为什么我的元素不居中？"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "当遇到样式问题时，首先打开控制台并查看元素。检查元素上的 class 名称是否正确，以及可能是否存在拼写错误。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "如果 class 名称正确，请确认右侧“Styles”下的相应 CSS 是否正确。检查一下你写在这个 class 里的 CSS 是否被其他 CSS 覆盖了。如果这些都没问题，就开始一个个移除掉控制面板中的 CSS，以确认是否是某个 CSS 导致的问题。如果移除 CSS 后问题仍未解决，就尝试增加一些你认为能够正确实现样式的属性。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "当然，每个人的 CSS 调试基础都不同，有些人能够一眼看出是哪个属性出了问题，有些人则不行。如果你是后者，就按照上述步骤逐一确认问题。"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left",
+        "level": 1
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "4、使用的组件库某个元素和官网的不一样"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "当使用第三方组件库时，可能会遇到一些错误。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "首先，打开组件库的官方网站，查看它的组件参数和你的组件参数是否一样，是否需要增加或减少。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "然后，打开你的package.json文件，找到这个组件，查看你的版本号，然后去官网查看你这个版本下的组件样式是否对应。如果不对应，可以尝试升级或降级。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "其次，确认一下是否还需要额外引入其他文件，例如全局CSS。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "如果以上步骤都无法解决问题，可以直接搜索，浏览其他人的情况。"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "indent": 0,
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "当遇到问题时，应耐心、细心地排查问题，并尝试使用各种方法寻找解决方案。同时，要有一定的条理性，不要随意猜测，而是采用排除法来解决问题。"
+        }
+      ]
+    }
+  ]
+}

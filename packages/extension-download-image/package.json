@@ -1,0 +1,36 @@
+{
+  "name": "@gitee/tide-extension-bold",
+  "version": "0.2.0-beta.1",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/types/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "dev": "rollup -c rollup.config.js -w",
+    "build": "rollup -c rollup.config.js",
+    "lint": "TIMING=1 eslint \"**/*.ts\"",
+    "clear": "rm -rf dist"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.21.0",
+    "@tiptap/extension-bold": "^2.0.3"
+  },
+  "devDependencies": {
+    "@tiptap/core": "^2.0.3",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "@tiptap/core": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/oschina/tide",
+    "directory": "packages/extension-bold"
+  },
+  "sideEffects": false
+}

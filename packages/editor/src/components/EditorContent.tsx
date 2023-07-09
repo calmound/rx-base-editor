@@ -29,9 +29,11 @@ export const EditorContent: React.FC<EditorContentProps> = ({
   }
 
   return (
-    <TEditorContent className={cls} style={contentStyle} editor={editor}>
-      {children}
-    </TEditorContent>
+    <TEditorContent
+      className={cls}
+      style={contentStyle}
+      editor={editor}
+    ></TEditorContent>
   );
 };
 

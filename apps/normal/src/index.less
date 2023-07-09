@@ -1,0 +1,134 @@
+@import (reference) '@gitee/tide-theme/dist/variable.less';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+body {
+  color-scheme: light;
+  color: @text-color;
+  background: #f5f6f8;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Roboto, PingFang SC, Noto Sans SC, Microsoft YaHei UI,
+    Microsoft YaHei, Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+body.theme-dark {
+  color-scheme: dark;
+  background: @dark-background-color;
+
+  .dark-hide {
+    display: none;
+  }
+
+  @import (less) 'highlight.js/styles/a11y-dark.css';
+}
+
+body:not(.theme-dark) {
+  .light-hide {
+    display: none;
+  }
+}
+
+a {
+  color: #2c7ef8;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0053d1;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+#app {
+  height: 100%;
+}
+
+.demo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+
+  &-main {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: 1rem;
+  }
+
+  &-editor-wrapper {
+    width: 50%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+
+    .tide-editor {
+      flex: 1;
+      min-height: 0;
+      border-radius: 4px;
+    }
+  }
+
+  &-inspect {
+    position: relative;
+    width: 50%;
+    min-width: 0;
+    border: 1px solid @border-color;
+    border-radius: 4px;
+    background-color: @background-color;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .inspect-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .tab {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      padding: 0 16px;
+      border-bottom: 1px solid @border-color;
+    }
+
+    .content {
+      flex: 1;
+      min-height: 0;
+    }
+  }
+}
+
+.ml-2 {
+  margin-left: 8px;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.demo-main {
+  justify-content: center;
+}
+
+.demo-editor-wrapper {
+  justify-content: center;
+}
+
+.demo-editor-wrapper {
+  width: 400px;
+}

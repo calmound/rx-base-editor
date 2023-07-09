@@ -76,6 +76,7 @@ export const EditorMenu: React.FC<{
         blockquote && <Blockquote key="blockquote" />,
         horizontalRule && <HorizontalRule key="horizontalRule" />,
         emoji && <Emoji key="emoji" />,
+        emoji && <Emoji key="emoji" />,
       ],
       [
         editor.menuEnableFullscreen && (

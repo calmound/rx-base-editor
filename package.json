@@ -7,6 +7,7 @@
     "build:nocache": "pnpm clear && turbo run build --force --filter=!./apps/*",
     "clear": "turbo run clear --force",
     "dev:demo": "pnpm --filter demo dev",
+    "dev:normal": "pnpm --filter normal dev",
     "dev:legacy": "pnpm --filter @gitee/tide-legacy dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
@@ -57,5 +58,8 @@
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1"
   }
 }
