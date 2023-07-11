@@ -60,6 +60,7 @@
     "pnpm": ">=7"
   },
   "dependencies": {
+    "@picocss/pico": "^1.5.10",
     "html2canvas": "^1.4.1"
   }
 }

@@ -12,6 +12,8 @@ import {
 } from './components/Editor/utils';
 import Preview from './components/Preview';
 import { Editor } from '@tiptap/core';
+import { Button, Checkbox, Space, Dropdown } from 'antd';
+import html2canvas from 'html2canvas';
 
 import '@gitee/tide/dist/style.css';
 import 'highlight.js/styles/a11y-light.css';
@@ -24,6 +26,8 @@ let previewEditor = null;
 function App() {
   const previewRef = useRef();
   const [bgHeight, setBgHeight] = useState(0);
+  const [divideVis, setDivideVis] = useState(false);
+  const [preview, setPreview] = useState(false);
 
   const editor = useEditor({
     autofocus: true,
@@ -75,6 +79,10 @@ function App() {
   //   }
   // }, [editorContent]);
 
+  useEffect(() => {
+    setBgHeight(document.querySelector('.tide-content')?.scrollHeight || 0);
+  }, [editorContent]);
+
   return (
     <ThemeContextProvider>
       <div className="demo">
@@ -86,12 +94,56 @@ function App() {
             <EditorRender editor={editor} />
           </div>
           <div>
-            <button>预览</button>
-            <button>图片下载</button>
+            <Space>
+              <Checkbox onChange={(e) => setDivideVis(e.target.checked)} />
+              比例尺展示
+              <Button>预览</Button>
+              <Button
+                onClick={() => {
+                  html2canvas(document.querySelector('.ProseMirror'), {
+                    height: (398 * 4) / 3,
+                    width: 398,
+                    y: document.querySelector('.tide-content')?.scrollTop,
+                    scale: 2,
+                  }).then((canvas) => {
+                    document.body.appendChild(canvas);
+                    const link = document.createElement('a');
+                    link.download = 'filename.png';
+                    link.href = canvas.toDataURL();
+                    link.click();
+                  });
+                }}
+              >
+                图片下载
+              </Button>
+              <Dropdown
+                menu={{
+                  onClick: (e) => {
+                    console.log(e);
+                  },
+                  items: [
+                    {
+                      key: '3/4',
+                      label: <> 3:4 比例</>,
+                    },
+                    {
+                      key: '1/1',
+                      label: <> 1:1 比例</>,
+                    },
+                    {
+                      key: '4/3',
+                      label: <> 4:3 比例</>,
+                    },
+                  ],
+                }}
+              >
+                <Button>自定义裁剪</Button>
+              </Dropdown>
+            </Space>
           </div>
           {/* <div className="demo-inspect">
             <div className="preview-editor" ref={previewRef}>
-              {Array(Math.ceil(bgHeight / 534))
+              {divideVis && Array(Math.ceil(bgHeight / 534))
                 .fill(1)
                 .map((item, index) => (
                   <div className="bg-divide" style={{ top: index * 534 }}></div>

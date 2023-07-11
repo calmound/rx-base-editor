@@ -1,0 +1,46 @@
+.bg-divide-wrap {
+  position: absolute;
+  top: 0;
+}
+
+.bg-divide {
+  height: 600px;
+  width: 400px;
+
+  &:before {
+    width: 30px;
+    height: 3px;
+    display: block;
+    position: absolute;
+    left: 0;
+    content: ' ';
+    background-color: rgba(105, 105, 221, 0.4);
+  }
+
+  &:after {
+    width: 30px;
+    height: 3px;
+    display: block;
+    position: absolute;
+    right: 0;
+    content: ' ';
+    background-color: rgba(105, 105, 221, 0.4);
+  }
+}
+.react-resizable {
+  position: fixed;
+  z-index: 10;
+  top: 116px;
+}
+
+.react-resizable-handle {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: grey;
+  // border-right: 1px solid grey;
+  // border-bottom: 1px solid grey;
+}

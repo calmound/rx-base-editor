@@ -3,6 +3,7 @@ import ReactDOM, { flushSync } from 'react-dom';
 
 import { Editor } from './Editor';
 import { ReactRenderer } from './ReactRenderer';
+import Snipaste from './Snipaste';
 
 const Portals: React.FC<{ renderers: Record<string, ReactRenderer> }> = ({
   renderers,
@@ -150,11 +151,13 @@ export class PureEditorContent extends React.Component<
   }
 
   render() {
-    const { editor, ...rest } = this.props;
+    const { editor, snipaste, ...rest } = this.props;
 
     return (
       <>
-        <div ref={this.editorContentRef} {...rest} />
+        <div ref={this.editorContentRef} {...rest}>
+          <Snipaste snipaste={snipaste} />
+        </div>
         <Portals renderers={this.state.renderers} />
       </>
     );
